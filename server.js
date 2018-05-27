@@ -136,6 +136,18 @@ io.on('connection', socket => {
     socket.authorizedPrivate = false;
   })
 
+
+  socket.on('temp Message', (message) => {
+    if(socket.authorizedPrivate = true) {
+      message = JSON.parse(message);
+      console.log(message);
+      io.to('private').emit('temp Message', message);
+    } else {
+      
+    }
+  });
+
+
   
 })
 
