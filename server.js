@@ -139,4 +139,4 @@ io.on('connection', socket => {
   
 })
 
-server.listen(4001, () => console.log(`Listening on port ${port}`))
+server.listen(process.env.PORT || 4001, () => console.log(`Listening on port ${port}`))
