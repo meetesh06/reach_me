@@ -1,4 +1,3 @@
-
 const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
@@ -11,13 +10,14 @@ const io = socketIO(server)
 const path = require('path');
 const globalManagedMemory = [];
 const APP_SECRET_KEY = "shady+password@06";
+const compression = require('compression');
 
 const SIZE_OF_CHANNEL = 10000;
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 const jwt = require('jsonwebtoken');
